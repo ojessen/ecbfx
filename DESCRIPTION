@@ -15,5 +15,10 @@ Imports:
     dplyr
 Suggests: 
     testthat,
-    lubridate
+    lubridate,
+    knitr,
+    rmarkdown,
+    ggplot2,
+    tidyr
 RoxygenNote: 7.1.0
+VignetteBuilder: knitr
