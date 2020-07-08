@@ -19,15 +19,21 @@ get_ecb_fx(
 
 \item{end_date}{Last day of time series}
 
-\item{freq}{Single letter abbreviation of annual, daily, half-yearly, monthly or quarterly}
+\item{freq}{Upper case, single letter abbreviation of annual, daily, half-yearly, monthly or quarterly}
 
 \item{type}{'A' for average or 'E' for end-of-period}
 }
 \value{
-A tibble with Datum as date index and y.xxx.EUR for currency XXX with frequency y
+A tibble with Datum as date index and y.xxx.EUR as values for currency XXX with frequency y
 }
 \description{
-Get Exchange Rate vs EUR from ECB
+This function implements the API to the \href{https://sdw.ecb.europa.eu/home.do}{ECB Statistical Data Warehouse} to
+fetch reference exchange rates vs the Euro.
+}
+\details{
+The type "end-of-period" does not exist for
+frequencies (e. g. half-annually for USD). If this is the case, use "A" for average.
+The "Datum" column is only of type "date" for daily data, else it is "character".
 }
 \examples{
 get_ecb_fx("CHF")

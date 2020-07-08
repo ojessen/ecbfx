@@ -1,14 +1,19 @@
 Package: ecbfx
 Type: Package
-Title: What the Package Does (Title Case)
+Title: Get Exchange Rates vs Euro From The ECB
 Version: 0.1.0
-Author: Who wrote it
-Maintainer: The package maintainer <yourself@somewhere.net>
-Description: More about what it does (maybe more than one line)
-    Use four spaces when indenting paragraphs within the Description.
-License: What license is it under?
+Authors@R: person("Owe", "Jessen", email = "post@owejessen.de",
+                  role = c("aut", "cre"))
+Description: The package implements a simple API to pull reference exchange rates from the European Central Bank.
+License: GPL-3
 Encoding: UTF-8
 LazyData: true
+Imports:
+    stringr,
+    httr,
+    readr,
+    dplyr
 Suggests: 
-    testthat
+    testthat,
+    lubridate
 RoxygenNote: 7.1.0

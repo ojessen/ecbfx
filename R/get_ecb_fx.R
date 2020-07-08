@@ -1,6 +1,9 @@
 
 #' Get Exchange Rate vs EUR from ECB
 #'
+#' This function implements the API to the \href{https://sdw.ecb.europa.eu/home.do}{ECB Statistical Data Warehouse} to
+#' fetch reference exchange rates vs the Euro.
+#'
 #' @param cur Currency - three letter standard
 #' @param start_date First day of time series
 #' @param end_date Last day of time series
@@ -9,7 +12,9 @@
 #'
 #' @return A tibble with Datum as date index and y.xxx.EUR as values for currency XXX with frequency y
 #' @export
-#' @details This function implements the API to the ECB Statistical Data Warehouse.
+#' @details The type "end-of-period" does not exist for
+#' frequencies (e. g. half-annually for USD). If this is the case, use "A" for average.
+#' The "Datum" column is only of type "date" for daily data, else it is "character".
 #' @examples
 #' get_ecb_fx("CHF")
 get_ecb_fx = function(cur, start_date = "1999-01-04", end_date = Sys.Date(), freq = "D", type = "A"){
